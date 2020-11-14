@@ -1,0 +1,23 @@
+<app-album-list *ngIf="albList"
+                [data]="data$ | async"></app-album-list>
+<section id="banner"
+         *ngIf="!albList"
+         class="animate__animated animate__fadeIn">
+  <app-listening *ngIf="flagListening"
+                 [songName]="nameSong"></app-listening>
+  <div class="inner">
+    <h1>Welcome - {{ name }}</h1>
+    <div *ngIf="!flagListening">
+      <button type="button"
+              class="button btn-success btn-block"
+              (click)="apiMusic()"
+      >
+        {{ nameSong ? nameSong : 'Mis canciones favoritas' }}
+      </button>
+
+    </div>
+  </div>
+</section>
+
+
+

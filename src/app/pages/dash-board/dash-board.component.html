@@ -1,0 +1,54 @@
+<div class="page-wrap">
+
+
+  <!-- Main -->
+  <section id="main">
+
+    <!-- Banner -->
+    <section id="banner"
+             *ngIf="!homeFlag">
+      <div class="inner">
+        <h1>Your Favourite Songs</h1>
+        <div class="join">
+          <a (click)="logFlag()"
+             class="button alt big">{{ loginFlag ? 'Ocultar' : 'Ingresar' }}</a>
+        </div>
+        <form [formGroup]="profileForm"
+              (ngSubmit)="homeFl()">
+          <div class="container animate__animated animate__backInDown"
+               *ngIf="loginFlag">
+            <div class="row join">
+              <label for="username">Nombre de Usuario</label>
+              <input
+
+                class="form-control"
+                formControlName="username"
+                id="username"
+                type="email"
+                placeholder="Usuario">
+            </div>
+            <span *ngIf="flagForm">Minimo 5 letras</span>
+            <div class="row join">
+              <label for="password">Contraseña</label>
+              <input
+                class="form-control"
+                [class.is-]
+                formControlName="password"
+                id="password"
+                type="password"
+                placeholder="Contraseña">
+            </div>
+            <span *ngIf="flagForm">Minimo 5 letras</span>
+            <div>
+              <button type="submit"
+                      class="button">
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </section>
+</div>

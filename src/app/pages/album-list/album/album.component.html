@@ -1,0 +1,45 @@
+<div class="center row" *ngIf="!songFlag">
+  <div class="card col-6">
+  <h2>{{ albums.artist }}</h2>
+  </div>
+  <div class="col-6">
+    <img [src]="albums.image"
+         class="card-img-top img-fluid"
+         alt="...">
+  </div>
+</div>
+<hr>
+<table class="table" *ngIf="!songFlag">
+
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+    <th scope="col">Cant. Canciones</th>
+    <th scope="col">Año</th>
+    <th scope="col">Ver canciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let album of albums.albums; let i = index">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>{{ album.name }}</td>
+    <td>{{ album.songs?.length || 'No hay canciones disponibles' }}</td>
+    <td>{{ album.year }}</td>
+    <td>
+      <button type="button" *ngIf="album.songs?.length > 0" (click)="flagSong()" [routerLink]="['./song', i]">Ver Canciones</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+
+
+

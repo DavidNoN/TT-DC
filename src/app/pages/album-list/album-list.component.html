@@ -1,0 +1,23 @@
+<!-- Gallery -->
+<section id="galleries" *ngIf="data">
+
+  <!-- Photo Galleries -->
+  <div class="gallery row center">
+    <div *ngFor="let artist of data.data; let i = index"
+         class="card"
+         style="width: 18rem;">
+      <img [src]="artist.image"
+           class="card-img-top"
+           alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ artist[ 'artist' ]}}</h5>
+        <p class="card-text">{{ artist.info}}</p>
+        <p>Total Albumes: <span>{{ artist.albums.length }}</span></p>
+        <a href="#"
+           class="btn btn-primary"
+           [routerLink]="['/album', i]"
+        >Ver más...</a>
+      </div>
+    </div>
+  </div>
+</section>

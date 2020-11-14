@@ -1,0 +1,19 @@
+<table class="table table-sm">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nombre</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let son of songs.songs; let i = index;">
+    <th scope="row"
+    >{{ i + 1 }}</th>
+    <td *ngIf="son.title === null">No se pudo encontar el nombre</td>
+    <td *ngIf="son.title !== null"><a (click)="listenSong(son.title)">{{ son.title }}</a></td>
+  </tr>
+  </tbody>
+</table>
+
+
+
